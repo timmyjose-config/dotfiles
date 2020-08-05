@@ -36,6 +36,11 @@ alias vim=nvim
 
 # create and change into directory
 function ccd {
-  mkdir -p "$1" && cd "$1"
+  if [ -d "$1" ]
+  then
+      echo "Directory $1 already exists"
+  else
+    mkdir -p "$1" && cd "$1"
+  fi
 }
 
