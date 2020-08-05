@@ -1,0 +1,1 @@
+/Users/z0ltan/.bash_profile
