@@ -1,1 +1,2 @@
-/Users/z0ltan/.profile
+eval $(ssh-agent)
+ssh-add $HOME/.ssh/mbp
