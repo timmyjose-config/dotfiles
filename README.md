@@ -1,2 +1,7 @@
 # dotfiles
-My dot files
+
+My dot files (bash, tmux, neovim, etc.).
+
+# LICENCE
+
+See [LICENSE.md](LICENSE.md).
