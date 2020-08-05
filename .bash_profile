@@ -49,7 +49,7 @@ export PATH="$PATH:$HOME/software/ada/bin"
 export PATH="$HOME/dev/forks/alire/bin:$PATH"
 
 # gcc config
-export PATH="/usr/local/Cellar/gcc/10.1.0/bin:$PATH"
+export PATH="/usr/local/Cellar/gcc/10.2.0/bin:$PATH"
 
 # llvm config
 export PATH="/usr/local/opt/llvm/bin:$PATH"

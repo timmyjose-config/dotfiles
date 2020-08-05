@@ -22,10 +22,10 @@ alias pgstatus="pg_ctl -D ~/.local/postgresdb status"
 alias py=python3
 alias python=python3
 alias pip=pip3
-alias gcc=/usr/local/Cellar/gcc/10.1.0/bin/gcc-10
-alias cc=/usr/local/Cellar/gcc/10.1.0/bin/gcc-10
-alias g++=/usr/local/Cellar/gcc/10.1.0/bin/g++-10
-alias c++=/usr/local/Cellar/gcc/10.1.0/bin/g++-10
+alias gcc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
+alias cc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
+alias g++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
+alias c++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 
 # llvm path config
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
