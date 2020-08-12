@@ -59,4 +59,8 @@ export PATSHOME="$HOME/software/ATS2-Postiats/"
 export PATH="$PATH:$PATSHOME/bin"
 export PATSCONTRIB="$HOME/software/ATS2-Postiats-contrib"
 
+# fzf command config
+export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/** -not -path **/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_OPTS="--exact"
+
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc

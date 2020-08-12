@@ -27,10 +27,6 @@ alias cc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
 alias g++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 alias c++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 
-# llvm path config
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
 # for now, maybe for good?
 alias vim=nvim
 
