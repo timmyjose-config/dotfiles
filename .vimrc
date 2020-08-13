@@ -7,18 +7,16 @@
 :set ruler tabstop=2 expandtab shiftwidth=2
 :set noendofline
 :set nofixendofline
-:set noswapfile
 
 " set leader and localleader explicitly
-::let mapleader = "\\"
-::let maplocalleader = ","
+:let mapleader = "\\"
+:let maplocalleader = ","
 
 " search settings
 :set hlsearch
 :set incsearch
- 
 " clear hlsearch
-::nnoremap <Leader><Enter> :noh<Cr> 
+:nnoremap <Leader><Enter> :noh<Cr> 
 
 " better switching between splits
 :map <C-j> <C-w>j
@@ -26,7 +24,7 @@
 :map <C-h> <C-w>h
 :map <C-l> <C-w>l
 
-" open new splits to the right and below
+"" open new splits to the right and below
 :set splitbelow
 :set splitright
 
@@ -63,15 +61,18 @@
 :nnoremap <M-g> :call JumpToDef()<cr>
 :inoremap <M-g> <esc>:call JumpToDef()<cr>i
 
-" Vim Plug configuration
-:call plug#begin(stdpath('data') . '/plugged')
-:Plug '/usr/local/opt/fzf'
-:Plug 'junegunn/fzf.vim'
-:Plug 'jiangmiao/auto-pairs'
-:Plug 'lifepillar/pgsql.vim'
-:Plug 'ervandew/supertab'
-:Plug 'neovimhaskell/haskell-vim'
-:Plug 'timmyjose-projects/lox.vim'
-:Plug 'rust-lang/rust.vim'
-:Plug 'vmchale/ats-vim'
+" Lox configuration
+:let g:lox_use_jlox = 1
+
+"Vim Plug configuration
+:call plug#begin('~/.vim/plugged')
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'lifepillar/pgsql.vim'
+Plug 'ervandew/supertab'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'timmyjose-projects/lox.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'vmchale/ats-vim'
 :call plug#end()
