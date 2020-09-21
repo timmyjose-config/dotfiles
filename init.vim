@@ -76,4 +76,5 @@
 :Plug 'rust-lang/rust.vim'
 :Plug 'vmchale/ats-vim'
 :Plug 'idris-hackers/idris-vim'
+:Plug 'fatih/vim-go'
 :call plug#end()

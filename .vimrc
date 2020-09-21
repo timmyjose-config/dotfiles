@@ -77,4 +77,5 @@
 :Plug 'rust-lang/rust.vim'
 :Plug 'vmchale/ats-vim'
 :Plug 'idris-hackers/idris-vim'
+:Plug 'idris-hackers/idris-vim'
 :call plug#end()
