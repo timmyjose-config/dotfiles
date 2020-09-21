@@ -53,6 +53,7 @@
 
 " Haskell configuration
 :let g:haskell_classic_highlighting = 1
+:autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
@@ -66,13 +67,14 @@
 
 "Vim Plug configuration
 :call plug#begin('~/.vim/plugged')
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'lifepillar/pgsql.vim'
-Plug 'ervandew/supertab'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'timmyjose-projects/lox.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'vmchale/ats-vim'
+:Plug '/usr/local/opt/fzf'
+:Plug 'junegunn/fzf.vim'
+:Plug 'jiangmiao/auto-pairs'
+:Plug 'lifepillar/pgsql.vim'
+:Plug 'ervandew/supertab'
+:Plug 'neovimhaskell/haskell-vim'
+:Plug 'timmyjose-projects/lox.vim'
+:Plug 'rust-lang/rust.vim'
+:Plug 'vmchale/ats-vim'
+:Plug 'idris-hackers/idris-vim'
 :call plug#end()

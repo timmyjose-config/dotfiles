@@ -2,6 +2,7 @@
 TERM="xterm-256color"
 CLICOLOR=YES
 PS1="\w\$ "
+PROMPT_DIRTRIM=2
 
 # brew config for autocompletion
 if type brew 2&>/dev/null; then
@@ -26,6 +27,7 @@ alias gcc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
 alias cc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
 alias g++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 alias c++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
+alias idris2="rlwrap idris2"
 
 # for now, maybe for good?
 alias vim=nvim

@@ -55,6 +55,7 @@
 
 " Haskell configuration
 :let g:haskell_classic_highlighting = 1
+:autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
@@ -74,4 +75,5 @@
 :Plug 'timmyjose-projects/lox.vim'
 :Plug 'rust-lang/rust.vim'
 :Plug 'vmchale/ats-vim'
+:Plug 'idris-hackers/idris-vim'
 :call plug#end()
