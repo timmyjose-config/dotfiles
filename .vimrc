@@ -32,8 +32,7 @@
 :nnoremap <Leader>t :FZF<Cr>
 :nnoremap <Leader>g :Ag<Cr>
 
-" colorscheme and syntax configuration"
-:colorscheme desert
+" syntax configuration
 :syntax on
 :filetype plugin indent on
 :set autoindent
@@ -52,16 +51,6 @@
 :autocmd BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 :autocmd BufWrite *: Autoformat
-
-" Rust configuration
-:let g:rustfmt_autosave = 1
-
-" Haskell configuration
-:let g:haskell_classic_highlighting = 1
-:autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
-
-" pgsql configuration
-:let g:sql_type_default = 'pgsql'
 
 " Jump to tag
 :nnoremap <M-g> :call JumpToDef()<cr>
@@ -83,4 +72,21 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'idris-hackers/idris-vim'
 :Plug 'fatih/vim-go'
+:Plug 'sainnhe/gruvbox-material'
 :call plug#end()
+
+" gruvxbo-material configuration
+:let g:gruvxbox_material_background = 'medium'
+:colorscheme gruvbox-material
+
+" Rust configuration
+:let g:rustfmt_autosave = 1
+
+" Haskell configuration
+:let g:haskell_classic_highlighting = 1
+:autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
+
+" pgsql configuration
+:let g:sql_type_default = 'pgsql'
+
+
