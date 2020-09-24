@@ -4,13 +4,6 @@ CLICOLOR=YES
 PS1="\w\$ "
 PROMPT_DIRTRIM=2
 
-# brew config for autocompletion
-if type brew 2&>/dev/null; then
-  for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
-    source "$completion_file"
-  done
-fi
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # aliases

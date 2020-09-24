@@ -41,6 +41,11 @@
 :set clipboard=unnamed
 :set termguicolors
 
+" netrw configuration
+:let g:netrw_liststyle = 3 " tree view
+:let g:netrw_banner = 0
+:let g:netrw_browse_split = 3 "always open in a new tab
+
 " Don't write backup file if vim is being called by "crontab -e"
 :autocmd BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 " Don't write backup file if vim is being called by "chpass"
@@ -77,5 +82,5 @@
 :Plug 'rust-lang/rust.vim'
 :Plug 'vmchale/ats-vim'
 :Plug 'idris-hackers/idris-vim'
-:Plug 'idris-hackers/idris-vim'
+:Plug 'fatih/vim-go'
 :call plug#end()

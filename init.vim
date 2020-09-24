@@ -30,11 +30,11 @@
 :set splitbelow
 :set splitright
 
-" FZF and Silver Searcher configuration"
+" FZF and Silver Searcher configuration
 :nnoremap <Leader>t :FZF<Cr>
 :nnoremap <Leader>g :Ag<Cr>
 
-" colorscheme and syntax configuration"
+" colorscheme and syntax configuration
 :colorscheme desert
 :syntax on
 :filetype plugin indent on
@@ -42,6 +42,11 @@
 :set smartindent
 :set clipboard=unnamed
 :set termguicolors
+
+" netrw configuration
+:let g:netrw_liststyle = 3 " tree view
+:let g:netrw_banner = 0
+:let g:netrw_browse_split = 3 " always open in a new tab
 
 " Don't write backup file if vim is being called by "crontab -e"
 :autocmd BufWrite /private/tmp/crontab.* set nowritebackup nobackup
