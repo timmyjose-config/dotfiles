@@ -76,6 +76,7 @@
 :call plug#end()
 
 " gruvxbo-material configuration
+:set background=light
 :let g:gruvxbox_material_background = 'medium'
 :colorscheme gruvbox-material
 
