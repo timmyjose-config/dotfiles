@@ -37,7 +37,6 @@
 " syntax configuration
 :syntax on
 :filetype plugin indent on
-:colorscheme desert
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -74,6 +73,11 @@
 :Plug 'fatih/vim-go'
 :Plug 'sainnhe/gruvbox-material'
 :call plug#end()
+
+" color scheme configuration
+:colorscheme gruvbox-material
+:set background=dark
+:let g_gruvbox_material_background = 'medium'
 
 " Rust configuration
 :let g:rustfmt_autosave = 1
