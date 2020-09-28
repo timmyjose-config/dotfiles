@@ -70,7 +70,7 @@
 :Plug 'timmyjose-projects/lox.vim'
 :Plug 'rust-lang/rust.vim'
 :Plug 'vmchale/ats-vim'
-:Plug 'idris-hackers/idris-vim'
+:Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
 :Plug 'evanram/mandevilla'
 :Plug 'dim13/gocode.vim'
