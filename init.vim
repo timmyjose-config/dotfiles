@@ -71,13 +71,12 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'idris-hackers/idris-vim'
 :Plug 'fatih/vim-go'
-:Plug 'sainnhe/gruvbox-material'
+:Plug 'evanram/mandevilla'
+:Plug 'dim13/gocode.vim'
 :call plug#end()
 
 " color scheme configuration
-:colorscheme gruvbox-material
-:set background=dark
-:let g_gruvbox_material_background = 'medium'
+:colorscheme gocode
 
 " Rust configuration
 :let g:rustfmt_autosave = 1
