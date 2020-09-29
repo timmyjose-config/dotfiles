@@ -72,11 +72,10 @@
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
 :Plug 'evanram/mandevilla'
-:Plug 'dim13/gocode.vim'
 :call plug#end()
 
 " color scheme configuration
-:colorscheme gocode
+:colorscheme mandevilla
 
 " Rust configuration
 :let g:rustfmt_autosave = 1
