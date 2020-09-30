@@ -72,11 +72,13 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
-:Plug 'evanram/mandevilla'
+:Plug 'sainnhe/gruvbox-material'
 :call plug#end()
 
 " color scheme configuration
-:colorscheme mandevilla
+:set background=dark
+:colorscheme gruvbox-material
+:let g:gruvbox_material_background='hard'
 
 " Rust configuration
 :let g:rustfmt_autosave = 1
