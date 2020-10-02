@@ -34,9 +34,10 @@
 :nnoremap <Leader>t :FZF<Cr>
 :nnoremap <Leader>g :Ag<Cr>
 
-" syntax configuration
-:syntax on
+" syntax and colour scheme configuration
 :filetype plugin indent on
+:set background=light
+:colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -74,11 +75,6 @@
 :Plug 'sainnhe/gruvbox-material'
 :call plug#end()
 
-" color scheme configuration
-:set background=dark
-:colorscheme gruvbox-material
-:let g:gruvbox_material_background='hard'
-
 " Rust configuration
 :let g:rustfmt_autosave = 1
 
@@ -88,4 +84,7 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
+
+" switch off colours
+:syntax off
 
