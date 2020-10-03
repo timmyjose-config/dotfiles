@@ -36,8 +36,9 @@
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:set background=light
-:colorscheme default
+:syntax on
+:set background=dark
+:colorscheme desert
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -84,7 +85,3 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
-
-" switch off colours
-:syntax off
-
