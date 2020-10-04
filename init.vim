@@ -36,9 +36,8 @@
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:syntax on
-:set background=dark
-:colorscheme desert
+:set background=light
+:colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -73,7 +72,6 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
-:Plug 'sainnhe/gruvbox-material'
 :call plug#end()
 
 " Rust configuration
@@ -85,3 +83,7 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
+
+" switch off syntax highlighting
+:syntax off
+
