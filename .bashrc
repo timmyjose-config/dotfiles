@@ -21,6 +21,7 @@ alias cc=/usr/local/Cellar/gcc/10.2.0/bin/gcc-10
 alias g++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 alias c++=/usr/local/Cellar/gcc/10.2.0/bin/g++-10
 alias idris2="rlwrap idris2"
+alias htop="htop --no-colour"
 
 # for now, maybe for good?
 alias vim=nvim
