@@ -36,3 +36,4 @@ function ccd {
   fi
 }
 
+[ -f "/Users/z0ltan/.ghcup/env" ] && source "/Users/z0ltan/.ghcup/env" # ghcup-env

@@ -73,7 +73,6 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
-:Plug 'ziglang/zig.vim'
 :call plug#end()
 
 " Rust configuration
