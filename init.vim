@@ -7,6 +7,7 @@
 :set ruler tabstop=2 expandtab shiftwidth=2
 :set noendofline
 :set nofixendofline
+:set nobackup
 :set noswapfile
 
 " set leader and localleader explicitly
@@ -35,6 +36,7 @@
 :nnoremap <Leader>g :Ag<Cr>
 
 " syntax and colour scheme configuration
+:syntax off
 :filetype plugin indent on
 :set background=light
 :colorscheme default
@@ -84,6 +86,4 @@
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
 
-" switch off syntax highlighting
 :syntax off
-

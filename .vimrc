@@ -7,6 +7,8 @@
 :set ruler tabstop=2 expandtab shiftwidth=2
 :set noendofline
 :set nofixendofline
+:set nobackup
+:set noswapfile
 
 " set leader and localleader explicitly
 :let mapleader = "\\"
