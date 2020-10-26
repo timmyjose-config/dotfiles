@@ -47,6 +47,9 @@ export PATH="$PATH:$HOME/.idris2/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.idris2/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
+# F*
+export PATH="$PATH:$HOME/software/z3-4.8.5-x64-osx-10.14.2/bin"
+
 # fzf command config
 export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/** -not -path **/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
@@ -77,3 +80,6 @@ source ~/.bashrc
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 [[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env
+
+# opam configuration
+test -r /Users/z0ltan/.opam/opam-init/init.sh && . /Users/z0ltan/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true

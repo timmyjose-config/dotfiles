@@ -75,6 +75,7 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
+:Plug 'FStarLang/VimFStar'
 :call plug#end()
 
 " Rust configuration
