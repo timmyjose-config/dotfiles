@@ -49,6 +49,7 @@ export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
 # F*
 export PATH="$PATH:$HOME/software/z3-4.8.5-x64-osx-10.14.2/bin"
+export PATH="$PATH:$HOME/dev/forks/FStar/bin"
 
 # fzf command config
 export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/** -not -path **/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"

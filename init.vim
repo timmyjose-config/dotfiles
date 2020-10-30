@@ -36,10 +36,10 @@
 :nnoremap <Leader>g :Ag<Cr>
 
 " syntax and colour scheme configuration
-:syntax off
+:syntax on
 :filetype plugin indent on
 :set background=light
-:colorscheme default
+:colorscheme desert
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -75,6 +75,7 @@
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
 :Plug 'FStarLang/VimFStar'
+:Plug 'whonore/Coqtail'
 :call plug#end()
 
 " Rust configuration
@@ -86,5 +87,3 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
-
-:syntax off
