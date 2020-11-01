@@ -44220,7 +44220,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>170 673 592 584 0 0 2048 1257 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 661 1482 756 0 0 2560 1417 </string>
+	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 661 1482 756 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -44931,8 +44931,9 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>TheSansMono</string>
+		<string>Source Code Pro</string>
 		<string>Ubuntu Mono</string>
-		<string>Menlo</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
@@ -44953,7 +44954,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>4739DE8A-A3E0-4A2B-9EF8-FB1A38D4D1AF</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>1174</integer>
+	<integer>1220</integer>
 	<key>NoSyncNeverPromptToChangeOption</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -45700,7 +45701,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-09-25T13:56:27Z</date>
+	<date>2020-10-08T10:42:11Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>

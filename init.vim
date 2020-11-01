@@ -36,10 +36,9 @@
 :nnoremap <Leader>g :Ag<Cr>
 
 " syntax and colour scheme configuration
-:syntax on
 :filetype plugin indent on
 :set background=light
-:colorscheme desert
+:colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -74,7 +73,6 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
-:Plug 'FStarLang/VimFStar'
 :Plug 'whonore/Coqtail'
 :call plug#end()
 
@@ -87,3 +85,5 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
+
+:syntax off
