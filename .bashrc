@@ -37,3 +37,6 @@ function ccd {
 }
 
 [ -f "/Users/z0ltan/.ghcup/env" ] && source "/Users/z0ltan/.ghcup/env" # ghcup-env
+
+# direnv config
+eval "$(direnv hook bash)"
