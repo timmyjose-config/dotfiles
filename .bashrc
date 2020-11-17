@@ -24,7 +24,14 @@ alias idris2="rlwrap idris2"
 alias htop="htop --no-colour"
 
 # for now, maybe for good?
-alias vim=nvim
+# set nvim for iTerm2, vim for other 
+# terminal emulators
+if [[ "$TERM_PROGRAM" == "iTerm.app" ]]
+then
+  alias vim=nvim
+else
+  alias vim=/usr/local/bin/vim
+fi
 
 # create and change into directory
 function ccd {

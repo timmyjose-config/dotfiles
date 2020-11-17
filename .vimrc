@@ -35,9 +35,10 @@
 :nnoremap <Leader>g :Ag<Cr>
 
 " syntax and colour scheme configuration
+:syntax on
 :filetype plugin indent on
-:set background=light
-:colorscheme default
+:set background=dark
+:colorscheme desert
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -87,5 +88,3 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
-
-:syntax off
