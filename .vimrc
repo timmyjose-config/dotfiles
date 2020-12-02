@@ -76,7 +76,9 @@
 :Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
 :Plug 'fatih/vim-go'
-:Plug 'whonore/Coqtail'
+:Plug 'vlime/vlime', { 'rtp': 'vim/' }
+:Plug 'kovisoft/paredit'
+:Plug 'ziglang/zig.vim'
 :call plug#end()
 
 " Rust configuration

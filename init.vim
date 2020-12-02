@@ -70,10 +70,8 @@
 :Plug 'neovimhaskell/haskell-vim'
 :Plug 'timmyjose-projects/lox.vim'
 :Plug 'rust-lang/rust.vim'
-:Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
-:Plug 'fatih/vim-go'
-:Plug 'whonore/Coqtail'
+:Plug 'ziglang/zig.vim'
 :call plug#end()
 
 " Rust configuration

@@ -71,7 +71,7 @@ export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # zig
 
-export PATH="$PATH:$HOME/software/zig/build/"
+export PATH="$PATH:$HOME/dev/forks/zig/build"
 
 # bash completion
 
@@ -84,3 +84,7 @@ export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # opam configuration
 test -r /Users/z0ltan/.opam/opam-init/init.sh && . /Users/z0ltan/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+
+# ANTLR configuration
+export CLASSPATH=".:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
