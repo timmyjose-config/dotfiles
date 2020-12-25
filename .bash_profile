@@ -88,3 +88,7 @@ export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
 # ANTLR configuration
 export CLASSPATH=".:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+# JavaCC configuration
+export PATH="$PATH:$HOME/dev/forks/javacc/scripts"

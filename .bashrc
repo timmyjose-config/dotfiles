@@ -1,7 +1,7 @@
 # set default terminal type
 TERM="xterm-256color"
 CLICOLOR=YES
-PS1="\w\$ "
+PS1="\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
 PROMPT_DIRTRIM=2
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -51,3 +51,6 @@ eval "$(direnv hook bash)"
 # ANTLR
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
+
+# export JAVA_HOME
+export JAVA_HOME="/usr/local/opt/openjdk@15"
