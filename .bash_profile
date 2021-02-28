@@ -58,12 +58,6 @@ export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# golang
-
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:$GOPATH/bin:$GOPATH/bin"
-
 # llvm config
 
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
@@ -92,3 +86,9 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # JavaCC configuration
 export PATH="$PATH:$HOME/dev/forks/javacc/scripts"
+
+# Triangle
+export PATH="$PATH:$HOME/dev/resources/compilers/PLPJ/tools-run"
+
+# Zig
+export PATH="$PATH:$HOME/dev/forks/zig/build"

@@ -44222,7 +44222,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 661 1482 756 0 0 2560 1417 </string>
+	<string>0 605 1482 812 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>0 494 1482 756 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_43AB790F-53AE-4AD7-9852-7B37A4CF758B</key>
@@ -44429,11 +44429,11 @@
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>1</real>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>1</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>1</real>
 			</dict>
 			<key>Bound Hosts</key>
 			<array/>
@@ -44447,8 +44447,12 @@
 			<string>/bin/zsh --login</string>
 			<key>Cursor Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>0.0</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
 				<real>0.0</real>
 				<key>Red Component</key>
@@ -44476,6 +44480,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Cursor Type</key>
+			<integer>0</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -44490,12 +44496,16 @@
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.19607843137254902</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.29411764705882354</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.37254901960784315</real>
 			</dict>
 			<key>Guid</key>
 			<string>43AB790F-53AE-4AD7-9852-7B37A4CF758B</string>
@@ -44913,7 +44923,7 @@
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<true/>
+			<false/>
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
@@ -44935,8 +44945,6 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>TheSansMono</string>
-		<string>Source Code Pro</string>
 		<string>Ubuntu Mono</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
@@ -44951,14 +44959,14 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{261, 935}</string>
+		<string>{954, 1144}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>4739DE8A-A3E0-4A2B-9EF8-FB1A38D4D1AF</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>1255</integer>
+	<integer>1332</integer>
 	<key>NoSyncNeverPromptToChangeOption</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -45705,7 +45713,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-08T10:42:11Z</date>
+	<date>2021-01-29T05:04:33Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -45728,6 +45736,8 @@
 	<real>1557939200</real>
 	<key>UseBorder</key>
 	<true/>
+	<key>UseLionStyleFullscreen</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>Window Arrangements</key>

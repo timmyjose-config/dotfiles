@@ -56,6 +56,13 @@
 
 :autocmd BufWrite *: Autoformat
 
+" save and load folds automatically
+augroup save_and_load_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup end
+
 " Jump to tag
 :nnoremap <M-g> :call JumpToDef()<cr>
 :inoremap <M-g> <esc>:call JumpToDef()<cr>i

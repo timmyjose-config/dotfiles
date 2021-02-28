@@ -35,10 +35,9 @@
 :nnoremap <Leader>g :Ag<Cr>
 
 " syntax and colour scheme configuration
-:syntax on
 :filetype plugin indent on
 :set background=dark
-:colorscheme desert
+:colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -56,6 +55,13 @@
 
 :autocmd BufWrite *: Autoformat
 
+" save and load views automatically
+augroup save_and_load_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup end
+
 " Jump to tag
 :nnoremap <M-g> :call JumpToDef()<cr>
 :inoremap <M-g> <esc>:call JumpToDef()<cr>i
@@ -68,16 +74,11 @@
 :Plug '/usr/local/opt/fzf'
 :Plug 'junegunn/fzf.vim'
 :Plug 'jiangmiao/auto-pairs'
-:Plug 'lifepillar/pgsql.vim'
 :Plug 'ervandew/supertab'
 :Plug 'neovimhaskell/haskell-vim'
 :Plug 'timmyjose-projects/lox.vim'
 :Plug 'rust-lang/rust.vim'
-:Plug 'vmchale/ats-vim'
 :Plug 'edwinb/idris2-vim'
-:Plug 'fatih/vim-go'
-:Plug 'vlime/vlime', { 'rtp': 'vim/' }
-:Plug 'kovisoft/paredit'
 :Plug 'ziglang/zig.vim'
 :call plug#end()
 
@@ -90,3 +91,4 @@
 
 " pgsql configuration
 :let g:sql_type_default = 'pgsql'
+:syntax off
