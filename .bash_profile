@@ -37,22 +37,15 @@ export PATH="/usr/local/Cellar/gcc/10.2.0/bin:$PATH"
 # llvm config
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-# ATS config
-export PATSHOME="$HOME/software/ATS2-Postiats/"
-export PATSCONTRIB="$HOME/software/ATS2-Postiats-contrib"
-export PATH="$PATH:$PATSHOME/bin"
-
 # Idris config
 export PATH="$PATH:$HOME/.idris2/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.idris2/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
-# F*
-export PATH="$PATH:$HOME/software/z3-4.8.5-x64-osx-10.14.2/bin"
-export PATH="$PATH:$HOME/dev/forks/FStar/bin"
-
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/** -not -path **/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
 
@@ -62,10 +55,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
-# zig
-
-export PATH="$PATH:$HOME/dev/forks/zig/build"
 
 # bash completion
 
@@ -84,11 +73,8 @@ export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 export CLASSPATH=".:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
-# JavaCC configuration
-export PATH="$PATH:$HOME/dev/forks/javacc/scripts"
-
 # Triangle
 export PATH="$PATH:$HOME/dev/resources/compilers/PLPJ/tools-run"
 
-# Zig
-export PATH="$PATH:$HOME/dev/forks/zig/build"
+# Ada 
+export PATH="$PATH:$HOME/opt/GNAT/2020/bin"

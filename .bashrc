@@ -24,8 +24,8 @@ alias idris2="rlwrap idris2"
 alias htop="htop --no-colour"
 alias tcompile=tcompile.sh
 alias trun=trun.sh
-alias runcpp=$HOME/dev/cp/scripts/runcpp.sh
-alias runc=$HOME/dev/cp/scripts/runc.sh
+alias runcpp=$HOME/dev/cai/scripts/runcpp.sh
+alias runc=$HOME/dev/cai/scripts/runc.sh
 
 # for now, maybe for good?
 # set nvim for iTerm2, vim for other 
