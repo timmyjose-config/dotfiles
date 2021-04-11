@@ -16,16 +16,19 @@ alias pgstatus="pg_ctl -D ~/.local/postgresdb status"
 alias py=python3
 alias python=python3
 alias pip=pip3
-alias gcc=/usr/local/Cellar/gcc/10.2.0_3/bin/gcc-10
-alias cc=/usr/local/Cellar/gcc/10.2.0_3/bin/gcc-10
-alias g++=/usr/local/Cellar/gcc/10.2.0_3/bin/g++-10
-alias c++=/usr/local/Cellar/gcc/10.2.0_3/bin/g++-10
+alias gcc=/usr/local/Cellar/gcc/10.2.0_4/bin/gcc-10
+alias cc=/usr/local/Cellar/gcc/10.2.0_4/bin/gcc-10
+alias g++=/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10
+alias c++=/usr/local/Cellar/gcc/10.2.0_4/bin/g++-10
 alias idris2="rlwrap idris2"
 alias htop="htop --no-colour"
 alias tcompile=tcompile.sh
 alias trun=trun.sh
+alias tdecompile=tdecompile.sh
 alias runcpp=$HOME/dev/cai/scripts/runcpp.sh
 alias runc=$HOME/dev/cai/scripts/runc.sh
+alias jshell="jshell --enable-preview"
+alias garvel="/Users/z0ltan/dev/projects/garvel/target/garvel.sh"
 
 # for now, maybe for good?
 # set nvim for iTerm2, vim for other 
@@ -55,3 +58,6 @@ alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
 
 # export JAVA_HOME
 export JAVA_HOME="/usr/local/opt/openjdk"
+
+# Selenium drivers
+export PATH="$PATH:$HOME/Downloads/selenium"

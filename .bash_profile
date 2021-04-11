@@ -32,7 +32,7 @@ export PATH="$HOME/PostgreSQL/pg10/bin:$PATH"
 export PATH="/usr/local/opt/libressl/bin:$PATH"
 
 # gcc config
-export PATH="/usr/local/Cellar/gcc/10.2.0/bin:$PATH"
+export PATH="/usr/local/Cellar/gcc/10.2.0_4/bin:$PATH"
 
 # llvm config
 export PATH="/usr/local/opt/llvm/bin:$PATH"
@@ -78,3 +78,8 @@ export PATH="$PATH:$HOME/dev/resources/compilers/PLPJ/tools-run"
 
 # Ada 
 export PATH="$PATH:$HOME/opt/GNAT/2020/bin"
+
+# garvel
+export PATH="/Users/z0ltan/dev/projects/garvel/target/garvel.sh":$PATH
+
+export PATH="/usr/local/opt/ghc@8.8/bin:$PATH"

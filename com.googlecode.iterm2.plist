@@ -44161,7 +44161,7 @@
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>IRMemory</key>
-	<integer>4</integer>
+	<integer>16</integer>
 	<key>LeftOption</key>
 	<integer>2</integer>
 	<key>LoadPrefsFromCustomFolder</key>
@@ -44966,7 +44966,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>4739DE8A-A3E0-4A2B-9EF8-FB1A38D4D1AF</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>1332</integer>
+	<integer>1427</integer>
 	<key>NoSyncNeverPromptToChangeOption</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -45645,6 +45645,10 @@
 			</dict>
 		</array>
 	</dict>
+	<key>NoSyncSearchHistory</key>
+	<array>
+		<string>but was</string>
+	</array>
 	<key>NoSyncSuppressBroadcastInputWarning</key>
 	<true/>
 	<key>NoSyncSuppressBroadcastInputWarning_selection</key>
