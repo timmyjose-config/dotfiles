@@ -17,7 +17,7 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
 # jdk
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-14.0.1.jdk/Contents/Home"
+export JAVA_HOME=/usr/local/opt/openjdk/
 
 # rbenv 
 eval "$(rbenv init -)"
@@ -43,7 +43,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.idris2/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . {} -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -71,6 +71,8 @@ export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
 
 # ANTLR configuration
 export CLASSPATH=".:/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH"
+
+# openjdk
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # Triangle
@@ -82,4 +84,6 @@ export PATH="$PATH:$HOME/opt/GNAT/2020/bin"
 # garvel
 export PATH="/Users/z0ltan/dev/projects/garvel/target/garvel.sh":$PATH
 
+# haskell
+export PATH="$PATH:/Users/z0ltan/.ghcup/bin"
 export PATH="/usr/local/opt/ghc@8.8/bin:$PATH"

@@ -50,14 +50,10 @@ function ccd {
   fi
 }
 
-[ -f "/Users/z0ltan/.ghcup/env" ] && source "/Users/z0ltan/.ghcup/env" # ghcup-env
-
 # ANTLR
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.9-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 
-# export JAVA_HOME
-export JAVA_HOME="/usr/local/opt/openjdk"
-
 # Selenium drivers
 export PATH="$PATH:$HOME/Downloads/selenium"
+[ -f "/Users/z0ltan/.ghcup/env" ] && source "/Users/z0ltan/.ghcup/env" # ghcup-env

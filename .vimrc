@@ -36,12 +36,17 @@
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:set background=dark
+:set background=light
 :colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
 :set termguicolors
+
+if &term == "alacritty"
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48:2;%lu;%lu;%lum"
+endif
 
 " netrw configuration
 :let g:netrw_liststyle = 3 " tree view
@@ -65,9 +70,6 @@ augroup end
 " Jump to tag
 :nnoremap <M-g> :call JumpToDef()<cr>
 :inoremap <M-g> <esc>:call JumpToDef()<cr>i
-
-" Lox configuration
-:let g:lox_use_jlox = 1
 
 "Vim Plug configuration
 :call plug#begin('~/.vim/plugged')
