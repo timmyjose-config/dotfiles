@@ -1,10 +1,10 @@
+:set nocompatible        
 :set fileencodings=utf-8
 :set encoding=utf-8
 :set modelines=0         
 
-:set nocompatible        
 :set backspace=2         
-:set ruler tabstop=2 expandtab shiftwidth=2
+:set ruler softtabstop=2 expandtab shiftwidth=2
 :set noendofline
 :set nofixendofline
 :set nobackup
@@ -36,17 +36,13 @@
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:set background=light
-:colorscheme default
+:syntax on
+:set background=dark
+:colorscheme desert
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
 :set termguicolors
-
-if &term == "alacritty"
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48:2;%lu;%lu;%lum"
-endif
 
 " netrw configuration
 :let g:netrw_liststyle = 3 " tree view
@@ -55,6 +51,7 @@ endif
 
 " Don't write backup file if vim is being called by "crontab -e"
 :autocmd BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+
 " Don't write backup file if vim is being called by "chpass"
 :autocmd BufWrite /private/etc/pw.* set nowritebackup nobackup
 
@@ -78,10 +75,8 @@ augroup end
 :Plug 'jiangmiao/auto-pairs'
 :Plug 'ervandew/supertab'
 :Plug 'neovimhaskell/haskell-vim'
-:Plug 'timmyjose-projects/lox.vim'
 :Plug 'rust-lang/rust.vim'
 :Plug 'edwinb/idris2-vim'
-:Plug 'ziglang/zig.vim'
 :call plug#end()
 
 " Rust configuration
@@ -90,7 +85,3 @@ augroup end
 " Haskell configuration
 :let g:haskell_classic_highlighting = 1
 :autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
-
-" pgsql configuration
-:let g:sql_type_default = 'pgsql'
-:syntax off
