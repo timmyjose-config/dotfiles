@@ -31,9 +31,6 @@ export PATH="$HOME/PostgreSQL/pg10/bin:$PATH"
 # miscellaneous
 export PATH="/usr/local/opt/libressl/bin:$PATH"
 
-# gcc config
-export PATH="/usr/local/Cellar/gcc/10.2.0_4/bin:$PATH"
-
 # llvm config
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
@@ -43,7 +40,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.idris2/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**/zig-cache/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -82,8 +79,11 @@ export PATH="$PATH:$HOME/dev/resources/compilers/PLPJ/tools-run"
 export PATH="$PATH:$HOME/opt/GNAT/2020/bin"
 
 # garvel
-export PATH="/Users/z0ltan/dev/projects/garvel/target/garvel.sh":$PATH
+export PATH="$HOME/dev/projects/garvel/target/garvel.sh":$PATH
 
 # haskell
-export PATH="$PATH:/Users/z0ltan/.ghcup/bin"
+export PATH="$PATH:$HOME/.ghcup/bin"
 export PATH="/usr/local/opt/ghc@8.8/bin:$PATH"
+
+# zig
+export PATH="$PATH:$HOME/dev/forks/zig/build"
