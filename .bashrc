@@ -29,7 +29,7 @@ alias garvel="/Users/z0ltan/dev/projects/garvel/target/garvel.sh"
 # for now, maybe for good?
 # set nvim for iTerm2, vim for other 
 # terminal emulators
-if [[ "$TERM_PROGRAM" == "iTerm.app" ]]
+if [[ "$LC_TERMINAL" == "iTerm2" ]]
 then
   alias vim=nvim
 else
