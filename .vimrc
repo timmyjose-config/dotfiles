@@ -34,11 +34,22 @@
 :nnoremap <Leader>t :FZF<Cr>
 :nnoremap <Leader>g :Ag<Cr>
 
+"Vim Plug configuration
+:call plug#begin('~/.vim/plugged')
+:Plug '/usr/local/opt/fzf'
+:Plug 'junegunn/fzf.vim'
+:Plug 'neovimhaskell/haskell-vim'
+:Plug 'rust-lang/rust.vim'
+:Plug 'edwinb/idris2-vim'
+:Plug 'morhetz/gruvbox'
+:Plug 'ziglang/zig.vim'
+:call plug#end()
+
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:syntax on
 :set background=dark
-:colorscheme desert
+:syntax on
+:colorscheme gruvbox
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -55,33 +66,86 @@
 " Don't write backup file if vim is being called by "chpass"
 :autocmd BufWrite /private/etc/pw.* set nowritebackup nobackup
 
-:autocmd BufWrite *: Autoformat
-
-" save and load views automatically
-augroup save_and_load_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
-augroup end
-
-" Jump to tag
-:nnoremap <M-g> :call JumpToDef()<cr>
-:inoremap <M-g> <esc>:call JumpToDef()<cr>i
-
-"Vim Plug configuration
-:call plug#begin('~/.vim/plugged')
-:Plug '/usr/local/opt/fzf'
-:Plug 'junegunn/fzf.vim'
-:Plug 'jiangmiao/auto-pairs'
-:Plug 'ervandew/supertab'
-:Plug 'neovimhaskell/haskell-vim'
-:Plug 'rust-lang/rust.vim'
-:Plug 'edwinb/idris2-vim'
-:call plug#end()
-
 " Rust configuration
 :let g:rustfmt_autosave = 1
 
 " Haskell configuration
 :let g:haskell_classic_highlighting = 1
 :autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
+
+" Adapted from - https://github.com/ziglang/zig.vim/blob/master/autoload/zig/fmt.vim
+function! s:cpp_format() abort
+  let view = winsaveview()
+
+  if !executable('clang-format')
+    echohl Error | echomsg "no clang-format binary found in PATH" | echohl None
+    return
+  endif
+
+  let cmdline = 'clang-format -style=LLVM'
+  let current_buf = bufnr('')
+
+  if exists('*systemlist')
+    silent let out = systemlist(cmdline, current_buf)
+  else
+    silent let out = split(system(cmdline, current_buf))
+  endif
+  let err = v:shell_error
+
+  if err == 0
+    try | silent undojoin | catch | endtry
+
+    if exists('*deletebufline')
+      call deletebufline(current_buf, len(out), line('$'))
+    else
+      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
+    endif
+    call setline(1, out)
+
+    call setloclist(0, [], 'r')
+    lclose
+  elseif get(g:, 'zig_fmt_parse_errors', 1)
+    let errors = s:parse_errors(expand('%'), out)
+
+    call setloclist(0, [], 'r', {
+        \ 'title': 'Errors',
+        \ 'items': errors,
+        \ })
+
+    let max_win_height = get(g:, 'clang_format_max_window_height', 5)
+    let win_height = min([max_win_height, len(errors)])
+    execute 'silent! lwindow ' . win_height
+  endif
+
+  call winrestview(view)
+
+  if err != 0
+    echohl Error | echomsg "cpp fmt returned error" | echohl None
+    return
+  endif
+  syntax sync fromstart
+endfunction
+
+function! s:parse_errors(filename, lines) abort
+  let errors = []
+  for line in a:lines
+    let tokens = matchlist(line, '^\(.\{-}\):\(\d\+\):\(\d\+\)\s*\(.*\)')
+    if !empty(tokens)
+      call add(errors,{
+            \"filename": a:filename,
+            \"lnum":     tokens[2],
+            \"col":      tokens[3],
+            \"text":     tokens[4],
+            \ })
+    endif
+  endfor
+
+  return errors
+endfunction
+
+" c++ auto-format on save
+augroup cpp
+  autocmd!
+  autocmd BufWritePre *.cpp call s:cpp_format()
+  autocmd BufWritePre *.h call s:cpp_format()
+augroup end

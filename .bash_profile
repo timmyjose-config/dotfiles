@@ -40,7 +40,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.idris2/lib"
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.idris2/lib"
 
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**/zig-cache/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/zig-cache/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**/zig-cache/**' -not -path '**/zig-out/**' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
