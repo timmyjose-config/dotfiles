@@ -16,9 +16,6 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 
-# rbenv 
-eval "$(rbenv init -)"
-
 # postgresql 10 setup
 export PATH="$HOME/PostgreSQL/pg10/bin:$PATH"
 
@@ -29,7 +26,7 @@ export PATH="/usr/local/opt/libressl/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . -not -path '**.git/**' -not -path '**.idea/**' -not -path '**/zig-cache' -not -path '**/zig-out' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.beam' -not -path '**.class' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -65,9 +62,6 @@ export PATH="$HOME/dev/projects/garvel/target/garvel.sh":$PATH
 export PATH="$PATH:$HOME/.ghcup/bin"
 export PATH="/usr/local/opt/ghc@8.8/bin:$PATH"
 
-# zig
-export PATH="$PATH:$HOME/dev/forks/zig/build"
-
 # ATS
 export PATSHOME="$HOME/dev/forks/ATS/ATS2-Postiats-int-0.4.2"
 export PATSCONTRIB="$HOME/dev/forks/ATS/ATS2-Postiats-contrib-0.4.2"
@@ -75,5 +69,18 @@ export PATSINCLUDE="$HOME/dev/forks/ATS/ATS2-Postiats-include-0.4.2"
 export PATH="$PATH:$HOME/dev/forks/ATS/ATS2-Postiats-int-0.4.2/bin"
 export PATH="$PATH:$HOME/dev/forks/ATS/ats-acc"
 
+# peg 
+export PATH="$PATH:$HOME/dev/forks/peg-0.1.18"
+
 [ -f $HOME/.bashrc ] && source $HOME/.bashrc
+
+[[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env
+
+# rebar3
+export PATH="$HOME/.cache/rebar3/bin:$PATH"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 

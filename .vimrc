@@ -40,16 +40,17 @@
 :Plug 'junegunn/fzf.vim'
 :Plug 'neovimhaskell/haskell-vim'
 :Plug 'rust-lang/rust.vim'
-:Plug 'edwinb/idris2-vim'
 :Plug 'morhetz/gruvbox'
-:Plug 'ziglang/zig.vim'
+:Plug 'elixir-editors/vim-elixir'
+:Plug 'jimenezrick/vimerl'
+:Plug 'neoclide/coc.nvim', {'branch': 'release'}
 :call plug#end()
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:set background=dark
-:syntax on
-:colorscheme gruvbox
+:set background=light
+:syntax off
+:colorscheme default
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
@@ -73,7 +74,6 @@
 :let g:haskell_classic_highlighting = 1
 :autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg=stylish-haskell
 
-" Adapted from - https://github.com/ziglang/zig.vim/blob/master/autoload/zig/fmt.vim
 function! s:cpp_format() abort
   let view = winsaveview()
 
@@ -104,17 +104,6 @@ function! s:cpp_format() abort
 
     call setloclist(0, [], 'r')
     lclose
-  elseif get(g:, 'zig_fmt_parse_errors', 1)
-    let errors = s:parse_errors(expand('%'), out)
-
-    call setloclist(0, [], 'r', {
-        \ 'title': 'Errors',
-        \ 'items': errors,
-        \ })
-
-    let max_win_height = get(g:, 'clang_format_max_window_height', 5)
-    let win_height = min([max_win_height, len(errors)])
-    execute 'silent! lwindow ' . win_height
   endif
 
   call winrestview(view)
@@ -148,4 +137,8 @@ augroup cpp
   autocmd!
   autocmd BufWritePre *.cpp call s:cpp_format()
   autocmd BufWritePre *.h call s:cpp_format()
+  autocmd BufWritePre *.hpp call s:cpp_format()
 augroup end
+
+" Coc 
+:let b:coc_enabled = v:false
