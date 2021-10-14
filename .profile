@@ -1,1 +1,0 @@
-/Users/z0ltan/.profile
