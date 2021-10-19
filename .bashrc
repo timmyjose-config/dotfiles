@@ -38,3 +38,6 @@ function ccd {
 [ -f "/Users/z0ltan/.ghcup/env" ] && source "/Users/z0ltan/.ghcup/env" # ghcup-env
 
 export GPG_TTY=$(tty)
+
+# disable homebrew auto-update
+export HOMEBREW_NO_AUTO_UPDATE=1

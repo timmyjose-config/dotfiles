@@ -47,13 +47,15 @@
 :Plug 'Julian/lean.nvim'
 :Plug 'psf/black', { 'branch': 'stable' }
 :Plug 'sdiehl/vim-ormolu'
+:Plug 'timmyjose-projects/kryptonite.vim'
+:Plug 'Olical/conjure'
 :call plug#end()
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
 :set background=dark
 :syntax on
-:colorscheme gruvbox
+:colorscheme kryptonite
 :set autoindent
 :set smartindent
 :set clipboard=unnamed

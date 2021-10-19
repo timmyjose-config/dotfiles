@@ -47,6 +47,7 @@
 :Plug 'Julian/lean.nvim'
 :Plug 'psf/black', { 'branch': 'stable' }
 :Plug 'sdiehl/vim-ormolu'
+:Plug 'timmyjose-projects/kryptonite.vim'
 :call plug#end()
 
 " syntax and colour scheme configuration
