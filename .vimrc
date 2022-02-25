@@ -42,7 +42,6 @@
 :Plug 'morhetz/gruvbox'
 :Plug 'neoclide/coc.nvim', {'branch': 'release'}
 :Plug 'neovimhaskell/haskell-vim'
-:Plug 'Nymphium/vim-koka'
 :Plug 'timmyjose-projects/verona.vim'
 :Plug 'Julian/lean.nvim'
 :Plug 'psf/black', { 'branch': 'stable' }
@@ -52,7 +51,7 @@
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
-:set background=light
+:set background=dark
 :syntax off
 :colorscheme default
 :set autoindent
@@ -145,6 +144,7 @@ augroup cpp
 augroup end
 
 " Coc 
+:let g:coc_start_at_startup=v:true
 :let b:coc_enabled = v:true
 
 " verona
@@ -152,3 +152,6 @@ augroup end
 
 " python (black)
 autocmd BufWritePre *.py execute ':Black'
+
+" paredit
+:let g:paredit_electric_return = 0

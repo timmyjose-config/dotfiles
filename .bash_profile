@@ -47,24 +47,11 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # openjdk
-export JAVA_HOME=/usr/local/opt/openjdk/
+export JAVA_HOME=/usr/local/opt/openjdk
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-# Triangle
-export PATH="$PATH:$HOME/dev/resources/compilers/PLPJ/tools-run"
-
-# garvel
-export PATH="$HOME/dev/projects/garvel/target/garvel.sh":$PATH
 
 # haskell
 export PATH="$PATH:$HOME/.ghcup/bin"
-
-# ATS
-export PATSHOME="$HOME/dev/projects/forks/ATS/ATS2-Postiats-int-0.4.2"
-export PATSCONTRIB="$HOME/dev/projects/forks/ATS/ATS2-Postiats-contrib-0.4.2"
-export PATSINCLUDE="$HOME/dev/projects/forks/ATS/ATS2-Postiats-include-0.4.2"
-export PATH="$PATH:$HOME/dev/projects/forks/ATS/ATS2-Postiats-int-0.4.2/bin"
-export PATH="$PATH:$HOME/dev/projects/forks/ATS/ats-acc"
 
 # peg 
 export PATH="$PATH:$HOME/dev/projects/forks/peg-0.1.18"
@@ -73,26 +60,14 @@ export PATH="$PATH:$HOME/dev/projects/forks/peg-0.1.18"
 
 [[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env
 
-# rebar3
-export PATH="$HOME/.cache/rebar3/bin:$PATH"
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-# ATS
-export PATSHOME="$HOME/dev/projects/forks/ATS2-Postiats"
-export PATH="$PATH:$HOME/dev/projects/forks/ats-acc"
-export PATH="$PATH:$PATSHOME/bin"
-export ATSCNTRB="$HOME/dev/projects/forks/ATS2-Postiats-contrib"
-
 # rbenv
 export PATH=$HOME/.rbenv/bin/:$PATH
 eval "$(rbenv init -)"
-
-# koka
-export PATH="$PATH:$HOME/dev/projects/projects/forks/koka/.stack-work/install/x86_64-osx/45150aeb3e2049b4cb5b938642de7b98d7ca94f2769c4d41ab1c2893262ec10d/8.10.4/bin/"
 
 # verona
 export PATH="$PATH:$HOME/dev/projects/forks/verona/build/dist"
@@ -101,6 +76,3 @@ export PATH="$PATH:$HOME/dev/projects/forks/verona/build/dist"
 export PYTHON_USER_BASE="$(python3 -m site --user-base)/bin"
 export PATH="$PATH:$PYTHON_USER_BASE"
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
-
-# gnu sed
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"

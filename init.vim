@@ -42,12 +42,13 @@
 :Plug 'morhetz/gruvbox'
 :Plug 'neoclide/coc.nvim', {'branch': 'release'}
 :Plug 'neovimhaskell/haskell-vim'
-:Plug 'Nymphium/vim-koka'
 :Plug 'timmyjose-projects/verona.vim'
 :Plug 'Julian/lean.nvim'
 :Plug 'psf/black', { 'branch': 'stable' }
 :Plug 'sdiehl/vim-ormolu'
 :Plug 'timmyjose-projects/kryptonite.vim'
+:Plug 'kovisoft/paredit'
+:Plug 'vlime/vlime', {'rtp': 'vim/'}
 :Plug 'Olical/conjure'
 :call plug#end()
 
@@ -150,3 +151,9 @@ augroup end
 
 " verona
 :let g:verona_on_windows = 0
+"
+" python (black)
+autocmd BufWritePre *.py execute ':Black'
+
+" paredit
+:let g:paredit_electric_return = 0
