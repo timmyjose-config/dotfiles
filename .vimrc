@@ -44,20 +44,31 @@
 :Plug 'neovimhaskell/haskell-vim'
 :Plug 'timmyjose-projects/verona.vim'
 :Plug 'Julian/lean.nvim'
-:Plug 'psf/black', { 'branch': 'stable' }
 :Plug 'sdiehl/vim-ormolu'
 :Plug 'timmyjose-projects/kryptonite.vim'
+:Plug 'timmyjose-projects/syzygy.vim'
+:Plug 'google/vim-maktaba'
+:Plug 'google/vim-codefmt'
+:Plug 'google/vim-glaive'
 :call plug#end()
+
+call glaive#Install()
+Glaive codefmt google_java_executable="java -jar /Users/z0ltan/Downloads/google-java-format-1.15.0-all-deps.jar"
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
 :set background=dark
-:syntax off
-:colorscheme default
+:syntax on
+:colorscheme kryptonite
 :set autoindent
 :set smartindent
 :set clipboard=unnamed
 :set termguicolors
+
+" Coc floating window colours
+if &background ==# "light"
+  highlight CocFloating ctermbg=white
+endif
 
 " netrw configuration
 :let g:netrw_liststyle = 3 " tree view
@@ -150,8 +161,15 @@ augroup end
 " verona
 :let g:verona_on_windows = 0
 
-" python (black)
-autocmd BufWritePre *.py execute ':Black'
-
 " paredit
 :let g:paredit_electric_return = 0
+
+" google codefmt
+augroup autoformat_settings
+  autocmd FileType dart AutoFormatBuffer dartfmt
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType gn AutoFormatBuffer gn
+  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType python AutoFormatBuffer yapf
+augroup END"
