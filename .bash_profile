@@ -28,7 +28,7 @@ export PATH="/usr/local/opt/libressl/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # fzf command config
-export FZF_DEFAULT_COMMAND="find . -type f -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.fasl' -not -path '**.beam' -not -path '**.class' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.o' -not -path '**.fasl' -not -path '**.beam' -not -path '**.class' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -47,8 +47,8 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # openjdk
-export JAVA_HOME=/usr/local/opt/openjdk
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export JAVA_HOME="/Users/z0ltan/Downloads/jdk-19.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # haskell
 export PATH="$PATH:$HOME/.ghcup/bin"
@@ -76,3 +76,15 @@ export PATH="$PATH:$HOME/dev/projects/forks/verona/build/dist"
 export PYTHON_USER_BASE="$(python3 -m site --user-base)/bin"
 export PATH="$PATH:$PYTHON_USER_BASE"
 export PATH="/usr/local/opt/openssl@3/bin:$PATH"
+
+# gnu sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+# sbcl
+export PATH="$PATH:$HOME/.local/sbcl/bin"
+
+# maven
+export PATH="$PATH:$HOME/Downloads/apache-maven-3.8.4/bin"
+
+# zig
+export PATH="$HOME/Downloads/zig/:$PATH"
