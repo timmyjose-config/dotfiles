@@ -46,14 +46,11 @@
 :Plug 'Julian/lean.nvim'
 :Plug 'sdiehl/vim-ormolu'
 :Plug 'timmyjose-projects/kryptonite.vim'
-:Plug 'timmyjose-projects/syzygy.vim'
+:Plug 'psf/black'
 :Plug 'google/vim-maktaba'
 :Plug 'google/vim-codefmt'
 :Plug 'google/vim-glaive'
 :call plug#end()
-
-call glaive#Install()
-Glaive codefmt google_java_executable="java -jar /Users/z0ltan/Downloads/google-java-format-1.15.0-all-deps.jar"
 
 " syntax and colour scheme configuration
 :filetype plugin indent on
@@ -146,7 +143,7 @@ function! s:parse_errors(filename, lines) abort
   return errors
 endfunction
 
-" c++ auto-format on save
+" C++ auto-format on save
 augroup cpp
   autocmd!
   autocmd BufWritePre *.cpp call s:cpp_format()
@@ -158,18 +155,13 @@ augroup end
 :let g:coc_start_at_startup=v:true
 :let b:coc_enabled = v:true
 
-" verona
-:let g:verona_on_windows = 0
-
 " paredit
 :let g:paredit_electric_return = 0
 
-" google codefmt
-augroup autoformat_settings
-  autocmd FileType dart AutoFormatBuffer dartfmt
+" coc-go
+:autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+:augroup autoformat_settings
   autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
-augroup END"
+  autocmd FileType java AutoFormatBuffer clang-format
+:augroup END
