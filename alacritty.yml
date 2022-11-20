@@ -48,7 +48,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 20000
+  history: 100000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -83,24 +83,25 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: BNIBCB+LetterGothic-Bold
+    #family: BNIBCB+LetterGothic-Bold
     #family: Letter Gothic Std
     #family: Office Code Pro
-    #family: Ubuntu Mono
+    family: Ubuntu Mono
+    #family: Menlo
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    #family: BNIBCB+LetterGothic-Bold
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold
+    style: Bold
 
   # Italic font face
   #italic:
@@ -152,10 +153,10 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background:  '0xfbf0d9'
-      #background: '0x000000'
-    foreground:  '0x5f4b32'
-    #foreground: '0xffffff'
+    #background:  '0xfbf0d9'
+    background: '0x000000'
+      #foreground:  '0x5f4b32'
+    foreground: '0xebdbb2'
 
     # Bright and dim foreground colors
     #
@@ -169,9 +170,9 @@ colors:
   #
   # Colors which should be used to draw the terminal cursor. If these are unset,
   # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
+  cursor:
+    text: '0xebdbb2'
+    cursor: '0xebdbb2'
 
   # Selection colors
   #

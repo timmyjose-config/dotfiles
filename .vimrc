@@ -4,7 +4,8 @@
 :set modelines=0         
 
 :set backspace=2         
-:set ruler softtabstop=2 expandtab shiftwidth=2
+:set expandtab
+:set ruler softtabstop=2 tabstop=2 shiftwidth=2
 :set noendofline
 :set nofixendofline
 :set nobackup
@@ -42,14 +43,12 @@
 :Plug 'morhetz/gruvbox'
 :Plug 'neoclide/coc.nvim', {'branch': 'release'}
 :Plug 'neovimhaskell/haskell-vim'
-:Plug 'timmyjose-projects/verona.vim'
-:Plug 'Julian/lean.nvim'
 :Plug 'sdiehl/vim-ormolu'
 :Plug 'timmyjose-projects/kryptonite.vim'
-:Plug 'psf/black'
 :Plug 'google/vim-maktaba'
 :Plug 'google/vim-codefmt'
 :Plug 'google/vim-glaive'
+:Plug 'jiangmiao/auto-pairs'
 :call plug#end()
 
 " syntax and colour scheme configuration
@@ -58,7 +57,6 @@
 :syntax on
 :colorscheme kryptonite
 :set autoindent
-:set smartindent
 :set clipboard=unnamed
 :set termguicolors
 
@@ -147,13 +145,14 @@ endfunction
 augroup cpp
   autocmd!
   autocmd BufWritePre *.cpp call s:cpp_format()
+  autocmd BufWritePre *.c call s:cpp_format()
   autocmd BufWritePre *.h call s:cpp_format()
   autocmd BufWritePre *.hpp call s:cpp_format()
 augroup end
 
 " Coc 
-:let g:coc_start_at_startup=v:true
-:let b:coc_enabled = v:true
+:let g:coc_start_at_startup=v:false
+:let b:coc_enabled = v:false
 
 " paredit
 :let g:paredit_electric_return = 0
@@ -165,3 +164,6 @@ augroup end
   autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer clang-format
 :augroup END
+
+" persist marks
+:set viminfo='100,<50,s10,h,%
