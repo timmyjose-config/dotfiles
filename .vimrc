@@ -49,6 +49,7 @@
 :Plug 'google/vim-codefmt'
 :Plug 'google/vim-glaive'
 :Plug 'jiangmiao/auto-pairs'
+:Plug 'sbdchd/neoformat'
 :call plug#end()
 
 " syntax and colour scheme configuration
@@ -167,3 +168,13 @@ augroup end
 
 " persist marks
 :set viminfo='100,<50,s10,h,%
+
+" Ocaml
+:let g:opambin = substitute(system('opam config var bin'),'\n$','','''')
+:let g:neoformat_enabled_ocaml = ['ocamlformat']
+:let g:neoformat_ocaml_ocamlformat = {}
+:let g:neoformat_ocaml_ocamlformat.exe = 'ocamlformat'
+:let g:neoformat_ocaml_ocamlformat.args = ['--inplace']
+:let g:neoformat_ocaml_ocamlformat.replace = 1
+:let g:neoformat_enabled_ocaml = ['ocamlformat']
+:set rtp^="/Users/z0ltan/.opam/5.0.0/share/ocp-indent/vim"

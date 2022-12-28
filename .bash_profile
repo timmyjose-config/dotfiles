@@ -47,7 +47,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # openjdk
-export JAVA_HOME="/Users/z0ltan/Downloads/jdk-19.jdk/Contents/Home"
+export JAVA_HOME="/Users/z0ltan/Downloads/jdk-21.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # haskell
@@ -56,9 +56,7 @@ export PATH="$PATH:$HOME/.ghcup/bin"
 # peg 
 export PATH="$PATH:$HOME/dev/projects/forks/peg-0.1.18"
 
-[ -f $HOME/.bashrc ] && source $HOME/.bashrc
-
-[[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -68,9 +66,6 @@ export NVM_DIR="$HOME/.nvm"
 # rbenv
 export PATH=$HOME/.rbenv/bin/:$PATH
 eval "$(rbenv init -)"
-
-# verona
-export PATH="$PATH:$HOME/dev/projects/forks/verona/build/dist"
 
 # python
 export PYTHON_USER_BASE="$(python3 -m site --user-base)/bin"
@@ -86,5 +81,11 @@ export PATH="$PATH:$HOME/.local/sbcl/bin"
 # maven
 export PATH="$PATH:$HOME/Downloads/apache-maven-3.8.4/bin"
 
-# zig
-export PATH="$HOME/Downloads/zig/:$PATH"
+# opam configuration
+test -r /Users/z0ltan/.opam/opam-init/init.sh && . /Users/z0ltan/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# Competitive Programming
+export PATH="$PATH:$HOME/dev/competitive-programming/scripts/"
+export PATH="/usr/local/opt/python@3.10/bin:$PATH"
+
+[[ -f ~/.bashrc ]] && source ~/.bashrc # ghcup-env
