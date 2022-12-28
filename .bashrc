@@ -6,11 +6,6 @@ PROMPT_DIRTRIM=2
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# needed by far2l which doesn't use bash_profile
-# Competitive Programming
-export PATH="$PATH:$HOME/dev/lc_and_cp/scripts/"
-export PATH="/usr/local/opt/python@3.10/bin:$PATH"
-
 # aliases
 alias git="LANG=\"en_US.UTF-8\" git"
 alias tmux='tmux -2'

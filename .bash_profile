@@ -17,15 +17,13 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 # Haskell, Hoogle
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
+export PATH="$PATH:$HOME/.ghcup/bin"
 
 # postgresql 10 setup
 export PATH="$HOME/PostgreSQL/pg10/bin:$PATH"
 
 # miscellaneous
 export PATH="/usr/local/opt/libressl/bin:$PATH"
-
-# llvm config
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # fzf command config
 export FZF_DEFAULT_COMMAND="find . -type f -not -path '**.git/**' -not -path '**.idea/**' -not -path '**.o' -not -path '**.fasl' -not -path '**.beam' -not -path '**.class' -not -path '**.vscode/**' -not -path '**/target/**' -not -path '**/build/**' -not -path '**/node_modules/**' -not -path '**.sass-cache/**'"
@@ -35,23 +33,21 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # llvm config
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export LLVM_HOME="$HOME/Downloads/clang+llvm-14.0.6-x86_64-apple-darwin"
+export PATH="$LLVM_HOME/bin:$PATH"
+#export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L$LLVM_HOME/lib"
+export CPPFLAGS="-I$LLVM_HOME/include"
 
 # bash completion
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-source ~/.bashrc
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 # openjdk
 export JAVA_HOME="/Users/z0ltan/Downloads/jdk-21.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$PATH"
-
-# haskell
-export PATH="$PATH:$HOME/.ghcup/bin"
 
 # peg 
 export PATH="$PATH:$HOME/dev/projects/forks/peg-0.1.18"
