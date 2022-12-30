@@ -84,6 +84,7 @@ endif
 :autocmd BufWritePre *.hs :call RunOrmolu()
 :autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg="ormolu -i"
 
+" format C and C++ code on save
 function! s:cpp_format() abort
   let view = winsaveview()
 
@@ -125,23 +126,6 @@ function! s:cpp_format() abort
   syntax sync fromstart
 endfunction
 
-function! s:parse_errors(filename, lines) abort
-  let errors = []
-  for line in a:lines
-    let tokens = matchlist(line, '^\(.\{-}\):\(\d\+\):\(\d\+\)\s*\(.*\)')
-    if !empty(tokens)
-      call add(errors,{
-            \"filename": a:filename,
-            \"lnum":     tokens[2],
-            \"col":      tokens[3],
-            \"text":     tokens[4],
-            \ })
-    endif
-  endfor
-
-  return errors
-endfunction
-
 " C++ auto-format on save
 augroup cpp
   autocmd!
@@ -158,23 +142,60 @@ augroup end
 " paredit
 :let g:paredit_electric_return = 0
 
-" coc-go
-:autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-
 :augroup autoformat_settings
-  autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer clang-format
 :augroup END
+ 
+" Ocaml
+" format Ocaml code on save
+function! s:ocaml_format() abort
+  let view = winsaveview()
+
+  if !executable('ocamlformat')
+    echohl Error | echomsg "no ocamlformat binary found in PATH" | echohl None
+    return
+  endif
+
+  let current_buf = bufnr('')
+  let cmdline = 'ocamlformat --enable-outside-detected-project ' . bufname('')
+
+  if exists('*systemlist')
+    silent let out = systemlist(cmdline, current_buf)
+  else
+    silent let out = split(system(cmdline, current_buf))
+  endif
+  let err = v:shell_error
+
+  if err == 0
+    try | silent undojoin | catch | endtry
+
+    if exists('*deletebufline')
+      call deletebufline(current_buf, len(out), line('$'))
+    else
+      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
+    endif
+    call setline(1, out)
+
+    call setloclist(0, [], 'r')
+    lclose
+  endif
+
+  call winrestview(view)
+
+  if err != 0
+    echohl Error | echomsg "ocamlformat returned error" | echohl None
+    return
+  endif
+  syntax sync fromstart
+endfunction
+
+" format on save for OCaml
+augroup ml
+  autocmd!
+  autocmd BufWritePost *.ml call s:ocaml_format()
+  autocmd BufWritePost *.mli call s:ocaml_format()
+augroup end
 
 " persist marks
 :set viminfo='100,<50,s10,h,%
 
-" Ocaml
-:let g:opambin = substitute(system('opam config var bin'),'\n$','','''')
-:let g:neoformat_enabled_ocaml = ['ocamlformat']
-:let g:neoformat_ocaml_ocamlformat = {}
-:let g:neoformat_ocaml_ocamlformat.exe = 'ocamlformat'
-:let g:neoformat_ocaml_ocamlformat.args = ['--inplace']
-:let g:neoformat_ocaml_ocamlformat.replace = 1
-:let g:neoformat_enabled_ocaml = ['ocamlformat']
-:set rtp^="/Users/z0ltan/.opam/5.0.0/share/ocp-indent/vim"
