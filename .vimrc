@@ -52,11 +52,14 @@
 :Plug 'sbdchd/neoformat'
 :call plug#end()
 
+" auto-pairs only for certain characters
+":let g:AutoPairs = {'(':')', '[':']', '{':'}','"':'"'}
+
 " syntax and colour scheme configuration
 :filetype plugin indent on
 :set background=dark
 :syntax on
-:colorscheme kryptonite
+:colorscheme gruvbox
 :set autoindent
 :set clipboard=unnamed
 :set termguicolors
@@ -194,6 +197,55 @@ augroup ml
   autocmd!
   autocmd BufWritePost *.ml call s:ocaml_format()
   autocmd BufWritePost *.mli call s:ocaml_format()
+augroup end
+
+" Golang
+" format Golang code on save
+function! s:golang_format() abort
+  let view = winsaveview()
+
+  if !executable('gofmt')
+    echohl Error | echomsg "no gofmt binary found in PATH" | echohl None
+    return
+  endif
+
+  let current_buf = bufnr('')
+  let cmdline = 'gofmt ' . bufname('')
+
+  if exists('*systemlist')
+    silent let out = systemlist(cmdline, current_buf)
+  else
+    silent let out = split(system(cmdline, current_buf))
+  endif
+  let err = v:shell_error
+
+  if err == 0
+    try | silent undojoin | catch | endtry
+
+    if exists('*deletebufline')
+      call deletebufline(current_buf, len(out), line('$'))
+    else
+      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
+    endif
+    call setline(1, out)
+
+    call setloclist(0, [], 'r')
+    lclose
+  endif
+
+  call winrestview(view)
+
+  if err != 0
+    echohl Error | echomsg "gofmt returned error" | echohl None
+    return
+  endif
+  syntax sync fromstart
+endfunction
+
+" format on save for Golang
+augroup golang
+  autocmd!
+  autocmd BufWritePost *.go call s:golang_format()
 augroup end
 
 " persist marks
