@@ -11,7 +11,15 @@
 :set nobackup
 :set noswapfile
 
-" set leader and localleader explicitly
+" set undofile
+if !isdirectory($HOME."/.vim/undo-dir")
+  call mkdir($HOME."/.vim/undo-dir", "p", 0700)
+endif
+
+set undodir=~/.vim/undo-dir
+set undofile
+
+"set leader and localleader explicitly
 :let mapleader = "\\"
 :let maplocalleader = ","
 
@@ -50,6 +58,8 @@
 :Plug 'google/vim-glaive'
 :Plug 'jiangmiao/auto-pairs'
 :Plug 'sbdchd/neoformat'
+:Plug 'airblade/vim-rooter'
+:Plug 'dijkstracula/vim-plang'
 :call plug#end()
 
 " auto-pairs only for certain characters
@@ -139,8 +149,10 @@ augroup cpp
 augroup end
 
 " Coc 
-:let g:coc_start_at_startup=v:false
-:let b:coc_enabled = v:false
+:let g:coc_start_at_startup=v:true
+:let b:coc_enabled = v:true
+:inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+:autocmd FileType markdown let b:coc_suggest_disable = 1
 
 " paredit
 :let g:paredit_electric_return = 0
@@ -250,4 +262,6 @@ augroup end
 
 " persist marks
 :set viminfo='100,<50,s10,h,%
+
+
 
