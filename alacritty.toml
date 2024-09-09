@@ -1,0 +1,13 @@
+[shell]
+program = "/opt/homebrew/bin/bash"
+args = ["-l"]
+
+[window]
+startup_mode = "maximized"
+
+[font]
+normal = { family = "Ubuntu Mono" }
+size = 14
+
+[keyboard]
+bindings = [{ key = "C", mods = "Alt", chars = "\u001bc" }]
