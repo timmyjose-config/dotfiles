@@ -45,7 +45,7 @@ set undofile
 
 "Vim Plug configuration
 :call plug#begin('~/.vim/plugged')
-:Plug '/usr/local/opt/fzf'
+:Plug '/opt/homebrew/opt/fzf'
 :Plug 'junegunn/fzf.vim'
 :Plug 'rust-lang/rust.vim'
 :Plug 'morhetz/gruvbox'
@@ -60,6 +60,8 @@ set undofile
 :Plug 'sbdchd/neoformat'
 :Plug 'airblade/vim-rooter'
 :Plug 'dijkstracula/vim-plang'
+:Plug 'kovisoft/slimv'
+:Plug 'keith/swift.vim'
 :call plug#end()
 
 " auto-pairs only for certain characters
@@ -260,8 +262,57 @@ augroup golang
   autocmd BufWritePost *.go call s:golang_format()
 augroup end
 
+" TODO - refactor all the language-specific formatting blocks
+" into a single block
+" Swift
+" format Swift code on save
+function! s:swift_format() abort
+  let view = winsaveview()
+
+  if !executable('swift-format')
+    echohl Error | echomsg "no swift-format binary found in PATH" | echohl None
+    return
+  endif
+
+  let current_buf = bufnr('')
+  let cmdline = 'swift-format ' . bufname('')
+
+  if exists('*systemlist')
+    silent let out = systemlist(cmdline, current_buf)
+  else
+    silent let out = split(system(cmdline, current_buf))
+  endif
+  let err = v:shell_error
+
+  if err == 0
+    try | silent undojoin | catch | endtry
+
+    if exists('*deletebufline')
+      call deletebufline(current_buf, len(out), line('$'))
+    else
+      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
+    endif
+    call setline(1, out)
+
+    call setloclist(0, [], 'r')
+    lclose
+  endif
+
+  call winrestview(view)
+
+  if err != 0
+    echohl Error | echomsg "swift-format returned error" | echohl None
+    return
+  endif
+  syntax sync fromstart
+endfunction
+
+" format on save for Golang
+augroup swift
+  autocmd!
+  autocmd BufWritePost *.swift call s:swift_format()
+augroup end
+
+
 " persist marks
 :set viminfo='100,<50,s10,h,%
-
-
-
