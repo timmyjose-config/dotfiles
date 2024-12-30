@@ -95,9 +95,6 @@ endif
 " Rust configuration
 :let g:rustfmt_autosave = 1
 
-" Haskell configuration
-:autocmd BufWritePre *.hs :call RunOrmolu()
-
 " Coc 
 :let g:coc_start_at_startup=v:true
 :let b:coc_enabled = v:true
@@ -159,7 +156,7 @@ augroup autoformat
   autocmd BufWritePost *.ml,*.mli call s:common_format('ocamlformat --enable-outside-detected-project ' . bufname(''))
   autocmd BufWritePost *.go call s:common_format('gofmt ' . bufname(''))
   autocmd BufWritePost *.swift call s:common_format('swift-format ' . bufname(''))
-  autocmd BufWritePre *.hs call s:common_format('ormolu -i ' . bufname(''))
+  autocmd BufWritePost *.hs call s:common_format('ormolu -i ' . bufname('')) | edit!
 augroup END
 
 " persist marks
