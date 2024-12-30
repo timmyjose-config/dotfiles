@@ -97,58 +97,6 @@ endif
 
 " Haskell configuration
 :autocmd BufWritePre *.hs :call RunOrmolu()
-:autocmd BufNewFile,BufRead,BufWrite *.hs setlocal equalprg="ormolu -i"
-
-" format C and C++ code on save
-function! s:cpp_format() abort
-  let view = winsaveview()
-
-  if !executable('clang-format')
-    echohl Error | echomsg "no clang-format binary found in PATH" | echohl None
-    return
-  endif
-
-  let cmdline = 'clang-format -style=LLVM'
-  let current_buf = bufnr('')
-
-  if exists('*systemlist')
-    silent let out = systemlist(cmdline, current_buf)
-  else
-    silent let out = split(system(cmdline, current_buf))
-  endif
-  let err = v:shell_error
-
-  if err == 0
-    try | silent undojoin | catch | endtry
-
-    if exists('*deletebufline')
-      call deletebufline(current_buf, len(out), line('$'))
-    else
-      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
-    endif
-    call setline(1, out)
-
-    call setloclist(0, [], 'r')
-    lclose
-  endif
-
-  call winrestview(view)
-
-  if err != 0
-    echohl Error | echomsg "cpp fmt returned error" | echohl None
-    return
-  endif
-  syntax sync fromstart
-endfunction
-
-" C++ auto-format on save
-augroup cpp
-  autocmd!
-  autocmd BufWritePre *.cpp call s:cpp_format()
-  autocmd BufWritePre *.c call s:cpp_format()
-  autocmd BufWritePre *.h call s:cpp_format()
-  autocmd BufWritePre *.hpp call s:cpp_format()
-augroup end
 
 " Coc 
 :let g:coc_start_at_startup=v:true
@@ -163,23 +111,21 @@ augroup end
   autocmd FileType java AutoFormatBuffer clang-format
 :augroup END
  
-" Ocaml
-" format Ocaml code on save
-function! s:ocaml_format() abort
+" common auto-formatter function
+function! s:common_format(cmdline) abort
   let view = winsaveview()
 
-  if !executable('ocamlformat')
-    echohl Error | echomsg "no ocamlformat binary found in PATH" | echohl None
+  if !executable(split(a:cmdline)[0])
+    echohl Error | echomsg split(a:cmdline)[0] . " binary not found in PATH" | echohl None
     return
   endif
 
   let current_buf = bufnr('')
-  let cmdline = 'ocamlformat --enable-outside-detected-project ' . bufname('')
 
   if exists('*systemlist')
-    silent let out = systemlist(cmdline, current_buf)
+    silent let out = systemlist(a:cmdline, current_buf)
   else
-    silent let out = split(system(cmdline, current_buf))
+    silent let out = split(system(a:cmdline, current_buf))
   endif
   let err = v:shell_error
 
@@ -200,119 +146,21 @@ function! s:ocaml_format() abort
   call winrestview(view)
 
   if err != 0
-    echohl Error | echomsg "ocamlformat returned error" | echohl None
+    echohl Error | echomsg split(a:cmdline)[0] . " returned error" | echohl None
     return
   endif
   syntax sync fromstart
 endfunction
 
-" format on save for OCaml
-augroup ml
+" create augroup for autoformatting
+augroup autoformat
   autocmd!
-  autocmd BufWritePost *.ml call s:ocaml_format()
-  autocmd BufWritePost *.mli call s:ocaml_format()
-augroup end
-
-" Golang
-" format Golang code on save
-function! s:golang_format() abort
-  let view = winsaveview()
-
-  if !executable('gofmt')
-    echohl Error | echomsg "no gofmt binary found in PATH" | echohl None
-    return
-  endif
-
-  let current_buf = bufnr('')
-  let cmdline = 'gofmt ' . bufname('')
-
-  if exists('*systemlist')
-    silent let out = systemlist(cmdline, current_buf)
-  else
-    silent let out = split(system(cmdline, current_buf))
-  endif
-  let err = v:shell_error
-
-  if err == 0
-    try | silent undojoin | catch | endtry
-
-    if exists('*deletebufline')
-      call deletebufline(current_buf, len(out), line('$'))
-    else
-      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
-    endif
-    call setline(1, out)
-
-    call setloclist(0, [], 'r')
-    lclose
-  endif
-
-  call winrestview(view)
-
-  if err != 0
-    echohl Error | echomsg "gofmt returned error" | echohl None
-    return
-  endif
-  syntax sync fromstart
-endfunction
-
-" format on save for Golang
-augroup golang
-  autocmd!
-  autocmd BufWritePost *.go call s:golang_format()
-augroup end
-
-" TODO - refactor all the language-specific formatting blocks
-" into a single block
-" Swift
-" format Swift code on save
-function! s:swift_format() abort
-  let view = winsaveview()
-
-  if !executable('swift-format')
-    echohl Error | echomsg "no swift-format binary found in PATH" | echohl None
-    return
-  endif
-
-  let current_buf = bufnr('')
-  let cmdline = 'swift-format ' . bufname('')
-
-  if exists('*systemlist')
-    silent let out = systemlist(cmdline, current_buf)
-  else
-    silent let out = split(system(cmdline, current_buf))
-  endif
-  let err = v:shell_error
-
-  if err == 0
-    try | silent undojoin | catch | endtry
-
-    if exists('*deletebufline')
-      call deletebufline(current_buf, len(out), line('$'))
-    else
-      silent execute ':' . len(out) . ',' . line('$') . ' delete _'
-    endif
-    call setline(1, out)
-
-    call setloclist(0, [], 'r')
-    lclose
-  endif
-
-  call winrestview(view)
-
-  if err != 0
-    echohl Error | echomsg "swift-format returned error" | echohl None
-    return
-  endif
-  syntax sync fromstart
-endfunction
-
-" format on save for Golang
-augroup swift
-  autocmd!
-  autocmd BufWritePost *.swift call s:swift_format()
-augroup end
-
+  autocmd BufWritePost *.cpp,*.c,*.h,*.hpp call s:common_format('clang-format -style=LLVM')
+  autocmd BufWritePost *.ml,*.mli call s:common_format('ocamlformat --enable-outside-detected-project ' . bufname(''))
+  autocmd BufWritePost *.go call s:common_format('gofmt ' . bufname(''))
+  autocmd BufWritePost *.swift call s:common_format('swift-format ' . bufname(''))
+  autocmd BufWritePre *.hs call s:common_format('ormolu -i ' . bufname(''))
+augroup END
 
 " persist marks
 :set viminfo='100,<50,s10,h,%
