@@ -30,6 +30,8 @@ alias jshell="jshell --enable-preview"
 alias miri="MIRIFLAGS=-Zmiri-tag-raw-pointers cargo miri"
 alias ocaml="ledit ocaml"
 alias x="x.sh"
+alias wr="wr.sh"
+alias rr="evcxr"
 
 # create and change into directory
 function ccd {
@@ -39,6 +41,14 @@ function ccd {
   else
     mkdir -p "$1" && cd "$1"
   fi
+}
+
+# go to the nearest enclosing git directory
+function crd {
+  cd ..
+  while [[ ! -d ".git" && $(pwd) != "/" ]]; do
+    cd ..
+  done
 }
 
 # diff JSON files semanticslly
@@ -67,3 +77,5 @@ export GPG_TTY=$(tty)
 [ -f "/Users/timmyjose/.ghcup/env" ] && . "/Users/timmyjose/.ghcup/env" # ghcup-env
 
 eval "$(direnv hook bash)"
+
+export REACT_EDITOR=vim
