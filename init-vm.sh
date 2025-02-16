@@ -1,0 +1,11 @@
+qemu-system-aarch64 \
+    -machine virt,highmem=on \
+    -cpu cortex-a72 \
+    -smp 4 \
+    -m 4096 \
+    -drive if=pflash,format=raw,readonly=on,file=$(brew --prefix qemu)/share/qemu/edk2-aarch64-code.fd \
+    -drive file=ubuntu-24-10-server.qcow2,if=virtio,format=qcow2 \
+    -cdrom ubuntu-24.10-live-server-arm64.iso \
+    -boot d \
+    -nic user,model=virtio-net-pci \
+    -nographic
